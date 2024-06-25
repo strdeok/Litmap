@@ -1,5 +1,11 @@
+import Mindmap from "./Asset/Mindmap";
+
 function App() {
-  return <></>;
+  return (
+    <>
+      <Mindmap> </Mindmap>
+    </>
+  );
 }
 
 export default App;

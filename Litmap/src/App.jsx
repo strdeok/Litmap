@@ -4,7 +4,7 @@ function App() {
   return (
     <>
       <div style={{ width: "500px", height: "500px" }}>
-        <Mindmap> </Mindmap>
+        <Mindmap></Mindmap>
       </div>
     </>
   );

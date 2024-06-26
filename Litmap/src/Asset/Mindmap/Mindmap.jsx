@@ -71,7 +71,16 @@ const EasyConnectExample = () => {
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   const onConnect = useCallback(
-    (params) => setEdges((eds) => addEdge(params, eds)),
+    (params) => setEdges((eds) => addEdge({ ...params, data: { text: '' } }, eds)),
+    [setEdges]
+  );
+
+  const onTextChange = useCallback(
+    (id, text) => {
+      setEdges((eds) =>
+        eds.map((edge) => (edge.id === id ? { ...edge, data: { ...edge.data, text } } : edge))
+      );
+    },
     [setEdges]
   );
 
@@ -79,7 +88,13 @@ const EasyConnectExample = () => {
     <>
       <ReactFlow
         nodes={nodes}
-        edges={edges}
+        edges={edges.map((edge) => ({
+          ...edge,
+          data: {
+            ...edge.data,
+            onTextChange,
+          },
+        }))}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
@@ -91,9 +106,9 @@ const EasyConnectExample = () => {
         connectionLineStyle={connectionLineStyle}
         defaultViewport={defaultViewport}
       >
-        <DownloadButton></DownloadButton>
-        <Controls></Controls>
-        <MiniMap></MiniMap>
+        <DownloadButton />
+        <Controls />
+        <MiniMap />
       </ReactFlow>
     </>
   );

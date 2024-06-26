@@ -3,7 +3,7 @@ import { useStore, getStraightPath } from 'reactflow';
 
 import { getEdgeParams } from './util';
 
-function FloatingEdge({ id, source, target, markerEnd, style, data = {}, onTextChange }) {
+function FloatingEdge({ id, source, target, markerEnd, style, data = {}, onTextChange, selected }) {
   const sourceNode = useStore(
     useCallback((store) => store.nodeInternals.get(source), [source])
   );
@@ -47,7 +47,11 @@ function FloatingEdge({ id, source, target, markerEnd, style, data = {}, onTextC
         className="react-flow__edge-path"
         d={edgePath}
         markerEnd={markerEnd}
-        style={style}
+        style={{
+          ...style,
+          stroke: selected ? 'grey' : style.stroke,
+          strokeWidth: selected ? 4 : style.strokeWidth,
+        }}
       />
       <foreignObject
         width={100}

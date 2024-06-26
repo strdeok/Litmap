@@ -1,9 +1,11 @@
-import Mindmap from "./Asset/Mindmap";
+import Mindmap from "./Asset/Mindmap/Mindmap";
 
 function App() {
   return (
     <>
-      <Mindmap> </Mindmap>
+      <div style={{ width: "500px", height: "500px" }}>
+        <Mindmap> </Mindmap>
+      </div>
     </>
   );
 }

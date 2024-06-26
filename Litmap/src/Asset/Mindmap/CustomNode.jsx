@@ -1,8 +1,8 @@
-import { Handle, Position, useStore } from "reactflow";
+import { Handle, NodeResizer, Position, useStore } from "reactflow";
 import Card from "./Card";
 const connectionNodeIdSelector = (state) => state.connectionNodeId;
 
-export default function CustomNode({ id }) {
+export default function CustomNode({ id, data, selected }) {
   const connectionNodeId = useStore(connectionNodeIdSelector);
 
   const isConnecting = !!connectionNodeId;
@@ -12,6 +12,13 @@ export default function CustomNode({ id }) {
 
   return (
     <div className="customNode">
+      <NodeResizer
+        color="blue"
+        isVisible={selected}
+        minWidth={100}
+
+        // style={{ width: "none" }}
+      />
       <div className="customNodeBody">
         {!isConnecting && (
           <Handle

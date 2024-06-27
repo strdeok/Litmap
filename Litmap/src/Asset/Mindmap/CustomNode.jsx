@@ -11,15 +11,14 @@ export default function CustomNode({ id, data, selected }) {
   const label = <Card></Card>;
 
   return (
-    <div className="customNode">
+    <div className="customNode" style={{ width: "100%", height: "100%" }}>
       <NodeResizer
         color="blue"
         isVisible={selected}
         minWidth={100}
-
-        // style={{ width: "none" }}
+        minHeight={100}
       />
-      <div className="customNodeBody">
+      <div className="customNodeBody" style={{ width: "100%", height: "100%" }}>
         {!isConnecting && (
           <Handle
             className="customHandle"
@@ -28,13 +27,13 @@ export default function CustomNode({ id, data, selected }) {
           />
         )}
 
+        {label}
         <Handle
           className="customHandle"
           position={Position.Left}
           type="target"
           isConnectableStart={false}
         />
-        {label}
       </div>
     </div>
   );

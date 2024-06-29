@@ -11,7 +11,6 @@ import ReactFlow, {
 import CustomNode from "./CustomNode";
 import FloatingEdge from "./FloatingEdge";
 import CustomConnectionLine from "./CustomConnectionLine";
-import DownloadButton from "./DownloadBtn";
 
 import "reactflow/dist/style.css";
 import "./style.css";
@@ -65,7 +64,7 @@ const defaultEdgeOptions = {
 
 const defaultViewport = { x: 0, y: 0, zoom: 0 };
 
-const EasyConnectExample = () => {
+const Mindmap = (props) => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   const [selectedEdgeId, setSelectedEdgeId] = useState(null);
@@ -137,7 +136,6 @@ const EasyConnectExample = () => {
         connectionLineStyle={connectionLineStyle}
         defaultViewport={defaultViewport}
       >
-        <DownloadButton />
         <Controls />
         <MiniMap />
       </ReactFlow>
@@ -145,4 +143,4 @@ const EasyConnectExample = () => {
   );
 };
 
-export default EasyConnectExample;
+export default Mindmap;

@@ -1,11 +1,9 @@
-import Mindmap from "./Asset/Mindmap/Mindmap";
+import Connection from "./Pages/Connection";
 
 function App() {
   return (
     <>
-      <div style={{ width: "100vw", height: "100vh" }}>
-        <Mindmap> </Mindmap>
-      </div>
+      <Connection></Connection>
     </>
   );
 }
